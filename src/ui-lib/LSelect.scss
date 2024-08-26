@@ -1,0 +1,11 @@
+.l-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .options {
+    position: absolute;
+    top: calc(100% - 1px);
+  }
+}
