@@ -1,0 +1,19 @@
+.search-input {
+  display: flex;
+  border: 1px solid;
+  width: max-content;
+  
+  &:focus-within {
+    outline: 1px solid;
+  }
+
+  .input,
+  .loopa {
+    border: 0;
+    background-color: transparent;
+  }
+
+  .input {
+    outline: none;
+  }
+}
