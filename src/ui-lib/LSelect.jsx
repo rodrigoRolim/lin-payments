@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useRef, useState, useMemo } from "react"
 import Listbox from "./Listbox"
+import LHint from "./LHint"
 import './LSelect.scss'
 
 export default function LSelect({ 
   controls, 
-  describedby, 
+  describedBy, 
   label, 
   labelledby, 
   options,
   selected,
   setSelected,
+  hint,
 }) {
   const LISTBOX_ORIENTATIONS = Object.freeze({
     down: 'down',
@@ -24,7 +26,6 @@ export default function LSelect({
   const [typedText, setTypedText] = useState('')
   const inputEl = useRef(null)
   const optionListEl = useRef(null)
-  const hasOptions = useMemo(() => Boolean(options.length), [options])
 
   const selectOption = useCallback((value) => {
     const foundOption = findOptionByValue(value) ?? {}
@@ -56,6 +57,7 @@ export default function LSelect({
     setExpanded(false)
   }
   function determineListboxOrientation() {
+    console.log(optionListEl)
     const optionsListHeight = optionListEl.current.getBoundingClientRect().height
     const inputBoundingRectClient = inputEl.current.getBoundingClientRect()
     const inputElHeight = inputBoundingRectClient.height
@@ -107,16 +109,16 @@ export default function LSelect({
         spellCheck="false"
         type="text"
         role="button"
-        aria-describedby={describedby}
+        aria-describedby={describedBy}
         ref={inputEl}
         value={typedText}
         onClick={openOptionList}
         onInput={filterOptionsByTypedText}
       />
+      <LHint id={describedBy} text={hint.text} className="hints"/>
       <Listbox
         className="options"
         isOptionsVisible={isOptionsVisible}
-        hasOptions={hasOptions}
         options={filteredOptions}
         selectOption={selectOption}
         selectedOption={selected}

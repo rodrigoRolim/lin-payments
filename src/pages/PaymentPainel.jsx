@@ -1,0 +1,1 @@
+// painel de pagamento com opções disponíveis: boleto, pix ou cartão

@@ -4,7 +4,6 @@ export default function Listbox({
   className,
   controls, 
   isOptionsVisible, 
-  hasOptions, 
   listboxOrientation, 
   options, 
   optionListEl, 
@@ -28,7 +27,7 @@ export default function Listbox({
   )
 
   return (
-    (isOptionsVisible && hasOptions) && 
+    isOptionsVisible && 
     <ul
       className={`listbox ${listboxOrientation} ${className}`}
       id={controls}

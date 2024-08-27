@@ -1,29 +1,18 @@
 import { useCallback } from "react"
 import LHint from "./LHint"
-import './TextInput.scss'
+import './PhoneInput.scss'
 
-export default function TextInput({ 
-  autoComplete, 
-  describedBy, 
-  inputMode,
-  readonly, 
-  label, 
-  hint, 
-  placeholder, 
-  value, 
-  setValue, 
-}) {
+export default function PhoneInput({ autoComplete, describedBy, label, hint, placeholder, value, setValue, inputMode }) {
   const handlerTextInput = useCallback((event) => {
     setValue(event.target.value)
   }, [value])
 
   return (
-    <label className="text-input">
+    <label className="phone-input">
       <span className="label">{label}</span>
       <input
         className="input"
-        type="text"
-        readOnly={readonly}
+        type="tel"
         aria-describedby={describedBy}
         placeholder={placeholder}
         autoComplete={autoComplete}

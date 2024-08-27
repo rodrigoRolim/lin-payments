@@ -2,7 +2,7 @@ import { useCallback } from "react"
 import LHint from "./LHint"
 import './PasswordInput.scss'
 
-export default function TextInput({ autoComplete, describedBy, label, hint, placeholder, value, setValue, inputMode }) {
+export default function PasswordInput({ autoComplete, describedBy, label, hint, placeholder, value, setValue, inputMode }) {
   const handlerTextInput = useCallback((event) => {
     setValue(event.target.value)
   }, [value])

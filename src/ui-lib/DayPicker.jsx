@@ -1,33 +1,25 @@
 import { useCallback } from "react"
 import LHint from "./LHint"
-import './TextInput.scss'
+import './DayPicker.scss'
 
-export default function TextInput({ 
-  autoComplete, 
-  describedBy, 
-  inputMode,
-  readonly, 
-  label, 
-  hint, 
-  placeholder, 
-  value, 
-  setValue, 
-}) {
+export default function DayPicker({ autoComplete, describedBy, label, hint, placeholder, value, setValue }) {
   const handlerTextInput = useCallback((event) => {
     setValue(event.target.value)
   }, [value])
 
   return (
-    <label className="text-input">
+    <label className="day-picker">
       <span className="label">{label}</span>
       <input
         className="input"
-        type="text"
-        readOnly={readonly}
+        type="number"
+        min={1}
+        max={31}
+        step={1}
         aria-describedby={describedBy}
         placeholder={placeholder}
         autoComplete={autoComplete}
-        inputMode={inputMode}
+        inputMode="numeric"
         value={value}
         onInput={handlerTextInput}
       />

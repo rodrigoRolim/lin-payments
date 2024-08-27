@@ -1,5 +1,5 @@
 export class UseValidator {
-  constructor(value) {
+  constructor() {
     this.error = ''
   }
 
